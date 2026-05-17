@@ -18,9 +18,27 @@ colo default
 
 filetype indent on
 
-inoremap ' ''
-inoremap " ""
-
 hi LineNr cterm=bold ctermfg=208 ctermbg=None
 hi CursorLineNr cterm=bold ctermfg=40 ctermbg=234
 hi CursorLine cterm=None ctermfg=None ctermbg=234
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
+
+call plug#end()
+
+let mapleader = " "
+
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>g :Rg<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
